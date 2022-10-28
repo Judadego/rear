@@ -1,0 +1,104 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'open sans';
+}
+
+.contenedor{
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin:auto;
+    overflow: hidden;
+}
+.titulo{
+    color:rgb(0, 0, 0);
+    font-size: 40px;;
+    text-align: center;
+    margin-bottom: 60px;
+
+}
+ .contenedor-textointro{
+    color:rgb(4, 3, 3);
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+ }
+
+ header{
+    width: 100%;
+    height: 600px;
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, hsla(275, 67%, 13%, 0.44), hsla(350, 81%, 42%, 0.429)),url(../images/Portada.jpg);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, hsla(275, 67%, 13%, 0.44), hsla(350, 81%, 42%, 0.427)), url(../images/Portada.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;    
+    position: relative;
+ }
+ #contLogin{
+    text-align: left;
+ }
+ #btnregistro{
+    color:black;
+ }
+ #btnregistro > a {
+    text-decoration: underline;
+ }
+ nav{
+    text-align: right;
+    padding: 30px 50px 0 0;
+ }
+
+ nav > a:hover{
+    text-decoration:underline;
+ }
+
+ nav > a {
+    color:rgb(244, 244, 244);
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+ }
+ .wave{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+ }
+.logo{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 15%;
+}
+.Promo{
+    display: flex;
+    height: 300px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    /*flex-direction: colum; /*para que salga organizado el texto*/
+    text-align: center;
+    color:rgb(255, 255, 255);
+}
+.contenedorInfo-webApp{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    /*max-width: 1000px;*/
+    margin: auto;  
+    
+}
+
+.contenedorInfo-webApp img{
+    width: 50%;
+    float: left;
+    margin-right: 20px;
+}
+.contenedor-fooder{
+    background-color: black;
+}
+
+

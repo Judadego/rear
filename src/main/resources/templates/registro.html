@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel = "shortcut icon" href="/images/1.1.png" type="image/x-icon">
+    <link rel = "stylesheet" href="../static/CSS/estilosLogin.css" th:href="@{/CSS/estilosLogin.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2? family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="../static/registroU.js" th:src="@{/js/registroU.js}"></script>
+</head>
+
+<body class="bd-secondary">
+    <header>
+        <section class="logo-nav">
+            <img class="logo" src="/images/1.1.png" th:src="@{/images/1.1.png}" alt="logo">
+        </section>
+    </header>
+    <main>
+        <section class="d-flex justify-content-center">
+            <div class="card col-sm-6 p-3 justify-content-center">
+                <div class="mb-3 justify-content-center">
+                    <h1 class="title">Registro de Usuario.</h1>
+                </div>
+                <!-- validacion de registro -->
+                <div class = " container justify-content-center">
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-3">
+                            <div th:if="${ param.exito}">
+                                <div class="alert alert-info">
+                                    Se ha registrado exitosamente<br>
+                                    <span>Ya puedes <a th:href="@{/}">Iniciar sesión aquí.</a></span>                                    
+                                </div>
+                                
+                            </div>
+                            </div>
+
+                        </div>
+
+                </div>
+                <!-- Fin Validacion registro -->
+                <div class="mb-2">
+                <!-- METODO POST -->
+                <!-- para usar Thymealif, le decimos cual es el destino a seguir,
+                le indicamos la clase del objeto -->
+                <!-- th:action ="@(/usr)" th:object="${Usuario}" method="post"-->
+                    <form th:action ="@{/registro}" th:object="${usuario}" method="post" class="row"  >                        
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="fname" th:field="*{Fname}" placeholder="Nombres" required autofocus = "autofocus">
+                            <label for="fname">Nombres</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="lname" th:field="*{Lname}" placeholder="Apellidos" required>
+                            <label for="apellido">Apellidos</label>
+                        </div>
+                        <div class="row col-md-12 centered">
+                            <div class="col-md-6 ">
+                                <label for="Document">Tipo de documento de identidad &nbsp;</label>
+                            </div>
+                            <div class="col-md-2" style="border: 1px solid rgba(0, 0, 0, 0.253); padding: 5px;">
+                                <input type="radio" name="CC" id="Document" th:field="*{TypeDni}" value="CC"> &nbsp; CC &nbsp;    
+                            </div>
+                            <div class="col-md-2" style="border: 1px solid rgba(0, 0, 0, 0.253); padding: 5px;">
+                                <input type="radio" name="CE" id="Document" th:field="*{TypeDni}" value="CE">&#160; CE &nbsp;
+                            </div>
+                            <div class="col-md-2" style="border: 1px solid rgba(0, 0, 0, 0.253); padding: 5px;">
+                                <input type="radio" name="Otro" id="Document" th:field="*{TypeDni}" value="Ot">&#160; Otro &nbsp;
+                            </div>
+                        </div>
+                       <!--<div class="mb-2"> 
+                            <label for="sexo">Sexo</label>
+                            <input type="radio" name="masculino" id="masculino" value="masculino">Masculino 
+                            <input type="radio" name="femenino" id="femenino" value="femenino">Fenenino 
+                            <input type="radio" name="lgbtiq+" id="lgbtiq+" value="lgbtiq+">Lgbtiq+
+                            <input type="radio" name="otro" id="otro" value="otro">Otro
+                        </div>-->
+                        <div class="form-floating mb-2 mt-2">
+                            <input type="number" class="form-control" id="Id_user" th:field="*{Id}" placeholder="N Documento" required>
+                            <label for="Id_user">N° Documento</label>
+                        </div> 
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="phone" th:field="*{Phone}" placeholder="Celular" required>
+                            <label for="phone">Celular</label>
+                        </div>
+                        <div class="form-floating mb-2">                            
+                            <input type="email" class="form-control" name="email" id="email" th:field="*{email}" placeholder="ej: algo@algo.com" required>
+                            <label for="email">Correo</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" th:onkeyup="coincidirContrasena()" class="form-control" id="contra1" placeholder="Contraseña" required>
+                            <label for="contra1">Asigna Contraseña</label><br>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" th:onkeyup="coincidirContrasena()" class="form-control" id="password" th:field="*{Passw}" placeholder="Password" required>
+                            <label for="password">Repite tu contraseña</label> 
+
+                            <!-- Aviso pendiente de revision -->
+                            <br>
+                                      
+                <!-- <label class="avisoContrasena" id="avisoContrasena">------- </label> -->
+                
+                
+                            </div>
+                          <button class="w-100 btn btn-lg btn-primary" type="submit" id="btnEnviarDatos">Registrar</button>
+                          <!-- <a href="/usr">Siguiente(Mientras se programa "Registrar")</a> -->
+                          
+                        <div class="text-center">
+                          <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+                        </div>
+                    </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main><br>
+    <fooder class="mb-2">
+        <section class="contenedor-fooder ">
+            <nav class="aFooder">
+                <a href="/">Rear</a>
+                <a href="Mantenimiento.html">Contacto</a>
+                <a href="Mantenimiento.html">Nosotros</a>
+                <a href="Mantenimiento.html">Informacion Legal</a><br><br>
+            </nav>
+        </section>
+    </fooder>
+    
+</body>
+
+<script src="js/funcionesAltausuario.js" th:src="@{/js/funcionesAltausuario.js}" > </script>
+</html>
