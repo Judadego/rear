@@ -1,6 +1,6 @@
 package com.rear.rearArtifac.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 
 //import com.rear.rearArtifac.entities.Usuario;
 
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 //import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.rear.rearArtifac.servicios.UsuarioServicio;
+//import com.rear.rearArtifac.servicios.UsuarioServicio;
 //@CrossOrigin //Para que realice los autowired correctamente
 @Controller //decimos que esta clase es un controller
 //@RequestMapping("/registro") //mapeo de rutas donde se va a montar el controlador
 public class RegistroController {
     
-    @Autowired 
-    private UsuarioServicio usrServicio;
+    //@Autowired 
+    //private UsuarioServicio usrServicio;
     
     @GetMapping("/login")
     public String iniciarSesion(){

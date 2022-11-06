@@ -1,8 +1,7 @@
 package com.rear.rearArtifac.entities;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.*;
-
 
 
 @Entity
@@ -14,7 +13,7 @@ public class Review {
     @Column(name = "id_review", nullable = false, unique=true)
     private Integer Id_review;
 
-    @Column(name = "Punctuation",length = 1, nullable = false, unique= false)
+    @Column(name = "Punctuation",length = 1,/* nullable = false,*/ unique= false)
     private Integer Punctuation;
     @Column(name = "Dstar")
     private Date Dstar;
@@ -22,40 +21,53 @@ public class Review {
     private Date Dend;
 
     //Relacion con la tabla Usuario
+    /*
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Id_user", referencedColumnName = "Id_user", nullable = false)
+    @JoinColumn(name = "Id_user", referencedColumnName = "Id_user" ,nullable = false)
     private Usuario Usr;
+    */
 
     //Relacion con la tabla Lessor
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Id_lessor", referencedColumnName = "Id_lessor", nullable = false)
+    @JoinColumn(name = "Id_lessor", referencedColumnName = "Id_lessor"/*, nullable = false*/)
     private Lessor Lessr;
 
     //Relacion con la tabla property
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Id_property", referencedColumnName = "Id_property", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "Id_property", referencedColumnName = "Id_property"/*, nullable = false*/)
     private Property Propert;
 
     //Constructor para pruebas mientras aprendo manejo de fechas
-    public Review(Integer punctuation, Usuario usr, Lessor lessr, Property propert) {
+    public Review(Integer punctuation, /*Usuario usr, */Lessor lessr, Property propert) {
         super();
         this.Punctuation = punctuation;
-        this.Usr = usr;
+        //this.Usr = usr;
         this.Lessr = lessr;
         this.Propert = propert;
     }
     public Review() {
     }
     //Constructor sin id ya que se genera auto
-    public Review(Integer punctuation, Date dstar, Date dend, Usuario usr, Lessor lessr, Property propert) {
+    public Review(Integer punctuation, Date Dstar, Date Dend, Usuario usr, Lessor lessr, Property propert) {
         super();
         this.Punctuation = punctuation;
-        this.Dstar = dstar;
-        this.Dend = dend;
-        this.Usr = usr;
+        this.Dstar = Dstar;
+        this.Dend = Dend;
+        //this.Usr = usr;
         this.Lessr = lessr;
         this.Propert = propert;
     }
+    //Sin usuario
+    public Review(Integer punctuation, Date dstar, Date dend,Lessor lessr, Property propert) {
+        
+        this.Punctuation = punctuation;
+        this.Dstar = dstar;
+        this.Dend = dend;
+        this.Lessr = lessr;
+        this.Propert = propert;        
+  
+    }
+
     public Integer getId_review() {
         return Id_review;
     }
@@ -80,12 +92,12 @@ public class Review {
     public void setDend(Date dend) {
         Dend = dend;
     }
-    public Usuario getUser(){
-        return Usr;
-    }
-    public void setUser(Usuario user){
+   // public Usuario getUser(){
+    //    return Usr;
+    //}
+    /*public void setUser(Usuario user){
         Usr = user;
-    }
+    }*/
     public Lessor getLessor(){
         return Lessr;
     }
@@ -127,7 +139,7 @@ public class Review {
     @Override
     public String toString() {
         return "Review [Dend=" + Dend + ", Dstar=" + Dstar + ", Id_review=" + Id_review + ", Lessr=" + Lessr
-                + ", Propert=" + Propert + ", Punctuation=" + Punctuation + ", Usr=" + Usr + "]";
+                + ", Propert=" + Propert + ", Punctuation=" + Punctuation + ", Usr=" + "]";
     }
 
     

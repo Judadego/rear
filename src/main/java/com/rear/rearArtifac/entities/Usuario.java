@@ -64,6 +64,15 @@ public class Usuario {
      * private List < Property > property;
      */
 
+    public Usuario(Long id_user, String fname, String lname, String typeDni, Long phone, String email) {
+        Id_user = id_user;
+        Fname = fname;
+        Lname = lname;
+        TypeDni = typeDni;
+        Phone = phone;
+        this.email = email;
+    }
+
     public Usuario() {
     }
 

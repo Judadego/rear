@@ -14,13 +14,13 @@ public class Lessor {
     @Column(name = "Id_lessor")
     private Long Id_lessor;
 
-    @Column(name="Fname", nullable = false, unique=false)
+    @Column(name="Fname"/*, nullable = false*/,unique=false)
     private String Fname;
-    @Column(name = "Lname", nullable = false, unique=false)
+    @Column(name = "Lname"/*, nullable = false */,unique=false)
     private String Lname;
-    @Column(name="Nationality", nullable = false, unique=false)
+    @Column(name="Nationality"/*, nullable = false*/, unique=false)
     private String Nationality;
-    @Column(name="TypeDni", length = 2, nullable = false , unique=false)
+    @Column(name="TypeDni", length = 2/*, nullable = false  */, unique=false)
     private String TypeDni;
 
     //Relacion con Review
@@ -30,6 +30,13 @@ public class Lessor {
     //Constructor...
     public Lessor (){
         
+    }
+    public Lessor( String fname, String lname, String nationality, String typeDni) {
+        super();
+        this.Fname = fname;
+        this.Lname = lname;
+        this.Nationality = nationality;
+        this.TypeDni = typeDni;
     }
     
     public Lessor(Long id_lessor, String fname, String lname, String nationality, String typeDni) {

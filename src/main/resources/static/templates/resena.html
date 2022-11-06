@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +31,7 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/usr" class="nav-link px-2 link-dark" _msthash="1671280" _msttexthash="250575">Cosulta con DNI</a></li>
+          <li><a href="user.html" class="nav-link px-2 link-dark" _msthash="1671280" _msttexthash="250575">Cosulta con DNI</a></li>
           <li><a href="#" class="nav-link px-2 link-secondary" _msthash="1671462" _msttexthash="159549">Reseña a tu arrendatario</a></li>
          <!--<li><a href="#" class="nav-link px-2 link-dark" _msthash="1671644" _msttexthash="132210">Clientela</a></li>
           <li><a href="#" class="nav-link px-2 link-dark" _msthash="1671826" _msttexthash="139529">Productos</a></li>
@@ -42,7 +42,7 @@
           <input type="search" class="form-control" placeholder="Buscar..." aria-label="Buscar" _mstplaceholder="101270" _mstaria-label="76154">
         </form>
     -->
-        <!-- <div class="dropdown text-end">
+        <div class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle" _mstalt="33306">
           </a>
@@ -53,7 +53,7 @@
             <li><hr class="dropdown-divider"></li>
             <li _msthidden="1"><a class="dropdown-item" href="#" _msthash="2062606" _msttexthash="98553" _msthidden="1">Sign out</a></li>
           </ul>
-        </div> -->
+        </div>
       </div>
     </div>
   </header>
@@ -64,99 +64,71 @@
                 <div class="mb-3 text-center">
                     <h1 class="title">Ingresa los datos de referencia de tu arrendatario.</h1>
                 </div>
-                <div class = " container justify-content-center">
-                    <div class="row">
-                        <div class="col-md-12 col-md-offset-3">
-                            <div th:if="${ param.exito}">
-                                <div class="alert alert-info">
-                                    Se ha registrado exitosamente<br>                                                                     
-                                </div>
-                                
-                            </div>
-                            </div>
-
-                        </div>
-
-                </div>
                 <div class="mb-2">
-                    <form th:action="@{/rvw}" th:object="${review}" method="post" class="row">
+                    <form action="" class="row" required="">
                         <div class="col-sm-6 p-3">
                             <div class="form-floating mb-2">
-                                <input type="text" required="" class="form-control" th:field="*{pFName}" id="pFName" placeholder="Nombres">
-                                <label for="pFName">Nombres</label>
+                                <input type="text" required="" class="form-control" id="floatingInput" placeholder="Nombres">
+                                <label for="floatingInput">Nombres</label>
                             </div>
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control" th:field="*{nationality}" id="nationality" placeholder="Nacionalidad">
-                                <label for="nationality">Nacionalidad</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Nacionalidad">
+                                <label for="floatingInput">Nacionalidad</label>
                             </div>
-                            <div class="row col-md-12 centered">
-                                <div class="col-md-4" >
-                                    <label for="Persona">Tipo de persona</label>
-                                </div>
-                                <div class="col-md-2" style="border: 1px solid rgba(0, 0, 0, 0.253); padding: 5px;">
-                                    <input type="radio" name="pnatural" id="pnatural" value="pnatural">Natural
-                                </div>
-                                <div class="col-md-2" style="border: 1px solid rgba(0, 0, 0, 0.253); padding: 5px;">
-                                    <input type="radio" name="pjuridica" id="pjuridica" value="pjuridica">Juridica 
-                                </div>
+                            <div class="mb-2">
+                                <label for="Persona">Tipo de persona</label>
+                                <input type="radio" name="pnatural" id="pnatural" value="pnatural">Natural
+                                <input type="radio" name="pjuridica" id="pjuridica" value="pjuridica">Juridica 
                                 
                             </div>
                         </div>
                         <div class="col-sm-6 p-3">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control" th:field="*{pLName}" id="pLName" placeholder="Apellidos">
-                                <label for="pLName">Apellidos</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Apellidos">
+                                <label for="floatingInput">Apellidos</label>
                             </div>
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control" required="" th:field="*{id_Lessor}" id="id_Lessor" placeholder="Celular">
-                                <label for="id_Lessor">N° Documento DNI</label>
+                                <input type="number" class="form-control" required="" id="floatingInput" placeholder="Celular">
+                                <label for="floatingInput">N° Documento DNI</label>
                             </div>                           
-                            <div class="row col-md-12 centered">
-                                <div class="col-md-6" >
-                                    <label for="Document">Documento de identidad</label>
-                                </div>
-                                <div class="col-md-2" style="border: 1px solid rgba(0, 0, 0, 0.253); padding: 5px;">
-                                    <input type="radio" name="CC" th:field="*{TypeDni}" id="TypeDni" value="CC">CC 
-                                </div>
-                                <div class="col-md-2" style="border: 1px solid rgba(0, 0, 0, 0.253); padding: 5px;">
-                                    <input type="radio" name="CE" th:field="*{TypeDni}" id="TypeDni" value="CE">CE 
-                                </div>
-                                <div class="col-md-2" style="border: 1px solid rgba(0, 0, 0, 0.253); padding: 5px;">
-                                    <input type="radio" name="Otro" th:field="*{TypeDni}" id="TypeDni" value="Ot">Otro
-                                </div>
+                            <div class="mb-2">
+                                <label for="Document">Documento de identidad</label>
+                                <input type="radio" name="CC" id="cc" value="CC">CC 
+                                <input type="radio" name="CE" id="ce" value="CE">CE 
+                                <input type="radio" name="Otro" id="otro" value="Otro">Otro
                             </div>
                         </div>
-                        <div class="row">
+                        <div action="" class="row">
                             <div class="col-sm-6 p-3">
                                 <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" th:field="*{city}" id="city" placeholder="Ciudad">
-                                    <label for="city">Ciudad</label>
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="Ciudad">
+                                    <label for="floatingInput">Ciudad</label>
                                 </div>
                                 <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" th:field="*{departament}" id="departament" placeholder="Departament">
-                                    <label for="departament">Departamento</label>
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="Departament">
+                                    <label for="floatingInput">Departamento</label>
                                 </div>
                                 <div class="form-floating mb-2">
-                                    <input type="date" class="form-control" id="dStart" required="" placeholder="fechaInicio">
-                                    <label for="dStart">Fecha Inicio</label>
+                                    <input type="date" class="form-control" id="floatingInput" required="" placeholder="fechaInicio">
+                                    <label for="floatingInput">Fecha Inicio</label>
                                 </div>                
                             </div>
                             <div class="col-sm-6 p-3">
                                 <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" th:field="*{adress}" id="adress" placeholder="Direccion">
-                                    <label for="adress">Dirección (de Propiedad Arrendada)</label>
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="Direccion">
+                                    <label for="floatingInput">Dirección (de Propiedad Arrendada)</label>
                                 </div>
                                 <div class="form-floating mb-2">
-                                    <input type="text" required="" th:field="*{puntuaction}" pattern="[1-5]" maxlength="1" class="form-control" id="puntuaction" placeholder="Valoracion">
-                                    <label for="puntuaction">Valoración (1=Pésimo, 5=excelente)</label>
+                                    <input type="character" required="" pattern="[1-5]" step="any" maxlength="1" class="form-control" id="floatingInput" placeholder="Valoracion">
+                                    <label for="floatingInput">Valoración (1=Pésimo, 5=excelente)</label>
                                 </div> 
                                 <div class="form-floating mb-2">
-                                    <input type="date" class="form-control"  id="dEnd" required="" placeholder="fechaFin">
-                                    <label for="dEnd">Fecha Fin</label>
+                                    <input type="date" class="form-control" id="floatingInput" required="" placeholder="fechaFin">
+                                    <label for="floatingInput">Fecha Fin</label>
                                 </div>                                  
                             </div>
-                            <button class="w-100 btn btn-lg btn-primary" type="submit" id="btnEnviarDatos">Subir Reseña</button>
-                            
+                            <button class="w-100 btn btn-lg btn-primary" type="submit">Subir Reseña</button>
+                            <a href="user.html">Siguiente(Mientras se programa "Subir reseña")</a>
                         </div>
                         
                     </form>
@@ -171,7 +143,7 @@
     <fooder>
         <section class="contenedor-fooder">
             <nav>
-                <a href="/">Rear</a>
+                <a href="index.html">Rear</a>
                 <a href="Mantenimiento.html">Contacto</a>
                 <a href="Mantenimiento.html">Nosotros</a>
                 <a href="Mantenimiento.html">Informacion Legal</a>

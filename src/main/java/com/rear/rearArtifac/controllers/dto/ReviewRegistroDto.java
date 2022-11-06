@@ -1,7 +1,5 @@
 package com.rear.rearArtifac.controllers.dto;
 
-
-
 import java.sql.Date;
 
 import com.rear.rearArtifac.entities.*;
@@ -16,10 +14,19 @@ public class ReviewRegistroDto {
     private Property id_property;
     private Usuario id_user;
     
+    public ReviewRegistroDto(Integer id, Date dEnd, Date dStart, Integer puntuaction) {
+        
+        super();
+        this.id = id;
+        this.dEnd = dEnd;
+        this.dStart = dStart;
+        this.puntuaction = puntuaction;
+    }
     public ReviewRegistroDto() {
     }
     public ReviewRegistroDto(Integer id, Date dEnd, Date dStart, Integer puntuaction, Lessor id_lessor,
             Property id_property, Usuario id_user) {
+                super();
         this.id = id;
         this.dEnd = dEnd;
         this.dStart = dStart;

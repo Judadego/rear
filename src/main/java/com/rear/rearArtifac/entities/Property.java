@@ -13,21 +13,35 @@ public class Property {
     @Column(name = "id_property", nullable = false)
     private Long Id_property;
 
-    @Column(name = "City", nullable = false, unique=false)
+    @Column(name = "City", /*nullable = false,*/ unique=false)
     private String City;
-    @Column(name = "Departament", nullable = false, unique=false)
+    @Column(name = "Departament",  unique=false)
     private String Departament;
-    @Column(name = "Address", nullable = false, unique=false)
+    @Column(name = "Address", unique=false)
     private String Address;
 
     //Relacion con Review
     /*@OneToMany(mappedBy = "property", cascade = CascadeType.ALL)
     private List < Review > review;*/
 
-    //Relacion con Tabla Usuario
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //Relacion con Tabla Usuario, se pospone por que no se como hacerla funcional
+    /*@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "Id_user", referencedColumnName = "Id_user")
-    private Usuario Usr;
+    private Usuario Usr;*/
+
+    public Property(){
+
+    };
+    public Property(String city, String departament, String address) {
+        super();
+        //City = city;
+        this.setCity(city);
+        //Departament = departament;
+        this.setDepartament(departament);
+        //Address = address;
+        this.setAddress(address);
+        
+    }
     
     public Property(String city, String departament, String address,Usuario user) {
         //City = city;
@@ -36,7 +50,7 @@ public class Property {
         this.setDepartament(departament);
         //Address = address;
         this.setAddress(address);
-        this.setUser(user);
+        //his.setUser(user);
     }
     //getters and setters...
     public Long getId_property() {
@@ -64,12 +78,12 @@ public class Property {
         this.Address = address;
     }
 
-    public Usuario getUser() {
+   /* public Usuario getUser() {
         return Usr;
     }
     public void setUser(Usuario user) {
         this.Usr = user;
-    }
+    }*/
 
     
     
@@ -100,7 +114,7 @@ public class Property {
     @Override
     public String toString() {
         return "Property [Address=" + Address + ", City=" + City + ", Departament=" + Departament + ", Id_property="
-                + Id_property + ", Id_user=" + Usr + "]";
+                + Id_property + ", Id_user=" +  "]";
     }
     
     

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav>
+<div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Iniciar Sesión</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+</nav>
+
+<!-- Prueba inicio-->
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header" style="background-color: #c31432;">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title" style="color: white; text-align: center;">Por favor, inicia sesión.</h4>
+  </div>
+  <div class="modal-body">
+
+    <!-- Inicio de formulario de Inicio de sesión -->
+    
+    <div class="" id="contLogin">
+        <div>
+            <form class="row ">
+                <div class="form-floating mb-2">
+                    <label for="floatingInput">Usuario</label><br>
+                    <input type="user" class="form-control" id="floatingInput" placeholder="Documento de identidad">
+                </div>
+                <div class="form-floating mb-6">
+                    <label for="floatingInput">Contraseña</label><br>
+                    <input type="password" class="form-control" id="floatingInput" placeholder="Contraseña">
+                </div>
+                <div class="checkbox mb-3">
+                    <label>
+                    <input type="checkbox" value="remember-me"> Recuerdame</label>
+                </div>
+                <button  class="w-100 btn btn-lg btn-primary">Iniciar Sesión</button>
+                <!-- Btn de inicio de sesion -->
+            </form>
+        </div>
+    </div>
+    <!-- Fin de formulario -->
+
+  </div>
+  <div class="modal-footer" style="background-color: black;">
+    
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<!-- Fin -->
+
+</body>
+</html>
