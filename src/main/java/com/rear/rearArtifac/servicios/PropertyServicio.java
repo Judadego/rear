@@ -10,5 +10,6 @@ import com.rear.rearArtifac.entities.Property;
 public interface PropertyServicio extends UserDetailsService {
     
     public Property guardar(PropertyRegistroDto registroDto);
+    
     public List<Property> listarProperties();
 }

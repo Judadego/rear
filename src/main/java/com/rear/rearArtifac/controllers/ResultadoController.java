@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/") //mapeo de rutas donde se va a montar el controlador
 public class ResultadoController {
 
+     
+
     @RequestMapping(value = "/result")
     public String mapResultado(){
         return "resultado"; //html que busca en templates Carpeta

@@ -1,5 +1,8 @@
 package com.rear.rearArtifac;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 //import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 //import java.util.List;
@@ -16,26 +19,37 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 //import com.rear.rearArtifac.repositories.UsuarioRepository;
 
 import com.rear.rearArtifac.entities.*;
+import com.rear.rearArtifac.repositories.UsuarioRepository;
 
 @DataJpaTest
 @AutoConfigureTestDatabase( replace = Replace.NONE)
 public class usuariocrudtest {
-   //@Autowired
-    //private UsuarioRepository UsrRepo;
+   @Autowired
+    private UsuarioRepository UsrRepo;
 
     Usuario usrCreated;
 
     @Test
     public void createUser(){
-        /*Usuario usr = new Usuario(1414, "fgfd", "null", "bb", 0, "fhghgf", "null");
+
+        Long id = (long) 121212;
+        String name = "Juan";
+        String LastName = "Perez";
+        String type = "CC";
+        Long phone = (long) 312345678;
+        String email = "correo@correo.com";
+
         Usuario result;
+
+        Usuario usr = new Usuario(id, name, LastName, type, phone, email);
         try {
             result = UsrRepo.save(usr);
             assertNotNull(result.getId_user());
             assertTrue(result.getId_user()> 0);
+            System.out.println("Se guardó exitosamente");
         } catch (Exception e){
             System.out.println(e);
-        }*/
+        }
         /* 
         System.out.println("#################################################################################");
         Usuario usr = new Usuario(152416488, "Julian", "derk", "cc", 03131222, "hsadjisd", "fdsfjdasfsd");
@@ -43,7 +57,7 @@ public class usuariocrudtest {
         Usuario usrCreated = UsrRepo.save(usr);
         assertNotNull(usrCreated.getId_user());
         assertTrue(usrCreated.getId_user()> 0);
-        */
+        
     }
 
     @Test

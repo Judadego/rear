@@ -12,5 +12,9 @@ public interface LessorServicio extends UserDetailsService{
     public Lessor guardar(LessorRegistroDto registroDto);
 
     public List<Lessor> listarArrendatario();
+
+    public Lessor get(Long id);
+
+    public void delete(Long id);
     
 }

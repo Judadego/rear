@@ -1,5 +1,7 @@
 package com.rear.rearArtifac.entities;
 
+import java.util.List;
+
 //import java.util.List;
 
 import javax.persistence.*;
@@ -24,8 +26,8 @@ public class Lessor {
     private String TypeDni;
 
     //Relacion con Review
-    /*@OneToMany(mappedBy = "Id_lessor", cascade = CascadeType.ALL)
-    private List < Review > review;*/
+    /*@OneToMany(mappedBy = "Id_lessor", cascade = CascadeType.ALL)*/
+    //private List < Review > review;
 
     //Constructor...
     public Lessor (){

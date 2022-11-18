@@ -1,37 +1,37 @@
 package com.rear.rearArtifac;
 
-//import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-//import java.util.*;
+import java.util.*;
 
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.*;
 import org.junit.jupiter.api.Test;
-//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.rear.rearArtifac.entities.*;
-/*
+
 import com.rear.rearArtifac.repositories.LessorRepository;
 import com.rear.rearArtifac.repositories.PropertyRepository;
 import com.rear.rearArtifac.repositories.ReviewRepository;
 import com.rear.rearArtifac.repositories.UsuarioRepository;
-*/
+
 @DataJpaTest
 @AutoConfigureTestDatabase( replace = Replace.NONE)
 public class ReviewCrudTest {
 
-    //@Autowired
-    //private ReviewRepository ReviewRepo;
+    @Autowired
+    private ReviewRepository ReviewRepo;
 
-    //@Autowired
-    //private UsuarioRepository userRepo;
+    @Autowired
+    private UsuarioRepository userRepo;
 
-    //@Autowired
-    //private LessorRepository lessorRepo;
+    @Autowired
+    private LessorRepository lssrRepo;
 
-   // @Autowired
-    //private PropertyRepository propRepo;
+   @Autowired
+    private PropertyRepository propRepo;
 
     Usuario usrCreated;
     Property propCreated;
@@ -40,39 +40,61 @@ public class ReviewCrudTest {
     @Test
     public void createReview ()throws Exception {
 
-        /*System.out.println("#################################################################################");
-        Usuario usr = new Usuario(152416488, "Julian", "derk", "cc", 03131222, "hsadjisd", "fdsfjdasfsd");
+        System.out.println("#################################################################################");
+        Long id = (long) 121212;
+        String name = "Juan";
+        String LastName = "Perez";
+        String type = "CC";
+        Long phone = (long) 312345678;
+        String email = "correo@correo.com";
+
+
+        Usuario usr = new Usuario(id, name, LastName, type,phone, email);
         //System.out.println(usr.toString());
         Usuario usrCreated = userRepo.save(usr);
         
-        /*try {
+        try {
             usrCreated = userRepo.save(usr);
             assertNotNull(usrCreated.getId_user());
             assertTrue(usrCreated.getId_user()> 0);
         } catch (Exception e){
             System.out.println(e);
-        }#############################################################
+        }
         System.out.println(usr.toString());
 
-        Lessor lessor = new Lessor(6458965, "juan", "Guax", "Colombiano", "XX");
-        Lessor lessrCreated = lessorRepo.save(lessor);
-        System.out.println(lessor.toString());
+        Long idL = (long)123123;
+        String fname = "kin";
+        String lname = "Kong";
+        String nacionalidad= "Colombia";
+        String typeL = "CC";
+
+        Lessor creado;
+
+        Lessor lessor = new Lessor(idL,fname, lname,nacionalidad,typeL);
+        try{
+            creado = lssrRepo.save(lessor);
+            assertNotNull(creado.getId_lessor());
+            assertTrue(creado.getId_lessor()> 0);
+            System.out.println("Se guardó exitosamente");
+        }catch(Exception e){
+            System.out.println(e);
+        } 
 
         Property prop = new Property("city", "departamen", "address", usrCreated);
         Property propCreated = propRepo.save(prop);
-        /*try {
+        try {
             propCreated = propRepo.save(prop);
             assertNotNull(propCreated.getId_property());
             assertTrue(propCreated.getId_property()> 0);
         } catch (Exception e){
             System.out.println(e);
-        }############*/
+        }
 
-        /*System.out.println("#################################################################################");
+        System.out.println("#################################################################################");
         //System.out.println(usr.toString());
         System.out.println(prop.toString());
 
-        Review rvw = new Review(5, null, null, usrCreated, lessrCreated, propCreated);
+        Review rvw = new Review(5, null, null, usrCreated, creado, propCreated);
         Review created = ReviewRepo.save(rvw);
         System.out.println(rvw.toString());
         assertNotNull(created.getId_review());
@@ -97,7 +119,7 @@ public class ReviewCrudTest {
         System.out.println("###############################" + usrCreated.toString());
 
         ReviewRepo.flush();  //para limpiar caché
-        */
+        
 
     }
 }

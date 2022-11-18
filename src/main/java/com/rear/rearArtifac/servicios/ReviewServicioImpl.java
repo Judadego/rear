@@ -4,7 +4,11 @@ package com.rear.rearArtifac.servicios;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -14,7 +18,7 @@ import org.springframework.stereotype.Service;
 import com.rear.rearArtifac.controllers.dto.ReviewCompletaDto;
 import com.rear.rearArtifac.entities.Lessor;
 import com.rear.rearArtifac.entities.Review;
-import com.rear.rearArtifac.entities.Usuario;
+//import com.rear.rearArtifac.entities.Usuario;
 import com.rear.rearArtifac.entities.Property;
 import com.rear.rearArtifac.repositories.LessorRepository;
 import com.rear.rearArtifac.repositories.PropertyRepository;
@@ -134,9 +138,21 @@ public class ReviewServicioImpl implements ReviewServicio {
 	} */
 
     @Override
+    @Transactional
     public List<Review> listarReviews() {
         // el return debe ser de tipo lista
-        return (List<Review>) rvwRepo.findAll();
+        return (List<Review> ) rvwRepo.findAll();
+    }
+
+    @Override
+    public Review buscarPorId (Integer id){
+        return rvwRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Integer id){
+        rvwRepo.deleteById(id);
     }
 
     @Override
@@ -144,5 +160,26 @@ public class ReviewServicioImpl implements ReviewServicio {
         
         return null;
     }
+
+    @Override
+    public Review get(Integer id) {
+        return rvwRepo.findById(id).get();
+    }
+
+    @Override
+    @Transactional
+    public Page<Review> findAll(Pageable pageabe) {
+       
+        return rvwRepo.findAll(pageabe);
+    }
+
+    @Override
+    @Transactional
+    public Review findOne(Integer id) {
+        
+        return rvwRepo.findById(id).orElse(null);
+    }
+
+
 
 }

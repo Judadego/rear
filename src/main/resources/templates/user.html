@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="es">
+<html xmlns:th="http://www.thymeleaf.org"  lang="es">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -92,7 +91,53 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="es">
                       </div>  
                     </form>   
               </div>
-                               
+              <!-- Inicio de Tabla -->
+              <div class="container text-center">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr >
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Documento</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Nacionalidad</th>
+                    <th scope="col">Dirección</th>
+
+                  </tr>
+                </thead>
+                <!-- <tbody class="table-group-divider">
+                  <tr th:each="lessor:${listarArrendatario}">
+                    <td th:text="${lessor.TypeDni}"></td>
+                    <td th:text="${lessor.Id_lessor}"></td>
+                    <td th:text="${lessor.Fname}"></td>
+                    <td th:text="${lessor.Lname}"></td>
+                    <td th:text="${lessor.Nationality}"></td>                    
+                    <td></td>
+                  </tr>
+                </tbody> -->
+                <tbody class="table-group-divider">
+                  <tr th:each="Reviews,iter:${listarReviews}">
+                    <td th:text="${Reviews.Id_review}"></td>  
+                    <td th:text="${Reviews.Punctuation}"></td>
+                    <td>
+                      <th:block th:each="Lessor,iter:${listarLessor}">
+                        <label th:text="${Lessor.Id_lessor}"></label>
+                      <td></td>
+                    </th:block>
+                    </td>
+                    <td>
+                      <th:block th:each="Lessor:${listarLessor}"> 
+                        <label th:text="${Lessor.Fname}"></label>  
+                      <td></td>
+                    </th:block>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+
+              <!-- Fin de table -->                             
               
             </div>
 
